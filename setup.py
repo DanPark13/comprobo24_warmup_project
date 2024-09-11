@@ -20,7 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'hello_world = warmup_project.hello_world:main'
+            'hello_world = warmup_project.hello_world:main',
+            'marker_sample = warmup_project.marker_sample:main',
+            'marker_sample_sub = warmup_project.marker_sample_sub:main'
         ],
     },
 )

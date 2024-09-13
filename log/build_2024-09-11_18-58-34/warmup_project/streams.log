@@ -1,0 +1,23 @@
+[0.658s] Invoking command in '/home/deep13/ros2_ws/src/comprobo24_warmup_project': PYTHONPATH=/home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/warmup_project build --build-base /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/build install --record /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/install.log --single-version-externally-managed install_data
+[0.917s] running egg_info
+[0.918s] writing build/warmup_project/warmup_project.egg-info/PKG-INFO
+[0.918s] writing dependency_links to build/warmup_project/warmup_project.egg-info/dependency_links.txt
+[0.918s] writing entry points to build/warmup_project/warmup_project.egg-info/entry_points.txt
+[0.918s] writing requirements to build/warmup_project/warmup_project.egg-info/requires.txt
+[0.919s] writing top-level names to build/warmup_project/warmup_project.egg-info/top_level.txt
+[0.922s] reading manifest file 'build/warmup_project/warmup_project.egg-info/SOURCES.txt'
+[0.922s] adding license file 'LICENSE'
+[0.923s] writing manifest file 'build/warmup_project/warmup_project.egg-info/SOURCES.txt'
+[0.923s] running build
+[0.923s] running build_py
+[0.923s] running install
+[0.923s] running install_lib
+[0.924s] running install_data
+[0.924s] running install_egg_info
+[0.926s] removing '/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project-0.0.0-py3.10.egg-info' (and everything under it)
+[0.926s] Copying build/warmup_project/warmup_project.egg-info to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project-0.0.0-py3.10.egg-info
+[0.927s] running install_scripts
+[0.945s] Installing hello_world script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[0.945s] Installing marker_sample script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[0.946s] writing list of installed files to '/home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/install.log'
+[0.968s] Invoked command in '/home/deep13/ros2_ws/src/comprobo24_warmup_project' returned '0': PYTHONPATH=/home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/warmup_project build --build-base /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/build install --record /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/install.log --single-version-externally-managed install_data

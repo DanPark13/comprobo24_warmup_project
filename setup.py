@@ -22,7 +22,8 @@ setup(
         'console_scripts': [
             'hello_world = warmup_project.hello_world:main',
             'marker_sample = warmup_project.marker_sample:main',
-            'marker_sample_sub = warmup_project.marker_sample_sub:main'
+            'teleop = warmup_project.teleop:main',
+            'drive_square = warmup_project.drive_square:main'
         ],
     },
 )

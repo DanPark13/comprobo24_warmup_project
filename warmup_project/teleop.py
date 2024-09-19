@@ -32,22 +32,22 @@ class TeleOpNode(Node):
             if key == '\x77':
                 msg.linear.x = linearSpeed
                 msg.angular.z = 0.0
-            
+
             # a key to turn left
             elif key == '\x61':
                 msg.linear.x = 0.0
                 msg.angular.z = angularSpeed
-            
+
             # x to go backwards
             elif key == '\x78':
                 msg.linear.x = -linearSpeed
                 msg.angular.z = 0.0
-            
+
             # d to turn right
             elif key == '\x64':
                 msg.linear.x = 0.0
                 msg.angular.z = -angularSpeed
-            
+
             # s to stop
             elif key == '\x73':
                 msg.linear.x = 0.0

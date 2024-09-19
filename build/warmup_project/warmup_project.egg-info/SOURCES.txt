@@ -15,6 +15,7 @@ test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
 warmup_project/__init__.py
+warmup_project/drive_square.py
 warmup_project/hello_world.py
 warmup_project/marker_sample.py
 warmup_project/teleop.py

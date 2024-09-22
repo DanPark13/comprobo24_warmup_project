@@ -33,12 +33,12 @@ class ObstacleAvoiderNode(Node):
         closest_distance = float('inf')
         obstacle_angle = None
 
-        # Detect the person
-        person_angle = None
+        # Check for obstacles within the threshold distance
         for i, distance in enumerate(ranges):
-            if distance < self.person_distance_max:
-                person_angle = angle_min + i * angle_increment
-                break
+            if 0 < distance < self.obstacle_distance_threshold:
+                if distance < closest_distance:
+                    closest_distance = distance
+                    obstacle_angle = angle_min + i * angle_increment
 
         # Command the robot to avoid obstacles
         self.avoid_obstacles(closest_distance, obstacle_angle)
@@ -51,14 +51,14 @@ class ObstacleAvoiderNode(Node):
         msg = Twist()
 
         if distance_to_obstacle < self.obstacle_distance_threshold:
-            # Obstacle detected and stop moving forward and turn away
-            msg.linear.x = 0.0
-            msg.angular.z = -angle_to_obstacle
+            # Obstacle detected, take evasive action
+            msg.linear.x = 0.0  # Stop moving forward
+            msg.angular.z = -angle_to_obstacle  # Turn away from the obstacle
             self.get_logger().info(f"Obstacle detected! Turning away from angle: {angle_to_obstacle}")
         else:
             # No obstacle nearby, move forward
-            msg.linear.x = 0.5
-            msg.angular.z = 0.0
+            msg.linear.x = 0.5  # Move forward
+            msg.angular.z = 0.0  # Go straight
             self.get_logger().info("No obstacles. Moving forward...")
 
         # Publish the command
@@ -68,6 +68,7 @@ def main(args=None):
     rclpy.init(args=args)
     obstacle_avoider_node = ObstacleAvoiderNode()
     rclpy.spin(obstacle_avoider_node)
+    obstacle_avoider_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

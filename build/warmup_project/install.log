@@ -1,14 +1,18 @@
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__init__.py
+/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/obstacle_avoider.py
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/teleop.py
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/wall_follower.py
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/marker_sample.py
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/drive_square.py
+/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/person_follower.py
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/hello_world.py
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/__init__.cpython-310.pyc
+/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/obstacle_avoider.cpython-310.pyc
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/teleop.cpython-310.pyc
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/wall_follower.cpython-310.pyc
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/marker_sample.cpython-310.pyc
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/drive_square.cpython-310.pyc
+/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/person_follower.cpython-310.pyc
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/__pycache__/hello_world.cpython-310.pyc
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/share/ament_index/resource_index/packages/warmup_project
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/share/warmup_project/package.xml
@@ -22,5 +26,7 @@
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/drive_square
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/hello_world
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/marker_sample
+/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/obstacle_avoider
+/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/person_follower
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/teleop
 /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project/wall_follower

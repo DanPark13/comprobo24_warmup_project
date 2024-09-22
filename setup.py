@@ -24,7 +24,9 @@ setup(
             'marker_sample = warmup_project.marker_sample:main',
             'teleop = warmup_project.teleop:main',
             'drive_square = warmup_project.drive_square:main',
-            'wall_follower = warmup_project.wall_follower:main'
+            'wall_follower = warmup_project.wall_follower:main',
+            'person_follower = warmup_project.person_follower:main',
+            'obstacle_avoider = warmup_project.obstacle_avoider:main'
         ],
     },
 )

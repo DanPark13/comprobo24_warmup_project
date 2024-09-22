@@ -22,7 +22,7 @@ class FiniteStateController(Node):
         # Initialize timestamps for driving in a square
         self.start_timestamp = self.get_clock().now().nanoseconds
         self.square_driving = True  # Flag for square driving mode
-        self.timer = self.create_timer(0.1, self.run_loop)  # Timer for updating control loop
+        self.timer = self.create_timer(0.1, self.drive_square)  # Timer for updating control loop
 
         # Store whether an obstacle was detected
         self.obstacle_detected = False
@@ -65,11 +65,13 @@ class FiniteStateController(Node):
             msg.linear.x = 0.0  # Stop moving forward
             msg.angular.z = -angle_to_obstacle  # Turn away from the obstacle
             self.get_logger().info(f"Obstacle detected! Turning away from angle: {angle_to_obstacle}")
+        else:
+            self.get_logger().info(f"No obstacle detected yet")
 
         # Publish the command
         self.vel_pub.publish(msg)
 
-    def run_loop(self):
+    def drive_square(self):
         """
         Controls the driving logic, alternating between square driving and obstacle avoidance.
         """
@@ -81,38 +83,16 @@ class FiniteStateController(Node):
         else:
             # If no obstacle is detected, continue with square driving
             current_time = self.get_clock().now().nanoseconds
-            delta = (current_time - self.start_timestamp) * (10 ** -9)
-
-            # Drive straight
-            if delta < 3:
+            delta = (current_time - self.start_timestamp) * (10 ** -9)  # Time in seconds
+            cycle_time = delta % 8.5  # Cycle is 3s forward + 5.5s turn
+            
+            # Forwards for the first 3 seconds of each cycle
+            if cycle_time < 3:
                 msg.linear.x = 0.3
                 msg.angular.z = 0.0
-            # Turn left
-            elif delta < 8.5:
-                msg.linear.x = 0.0
-                msg.angular.z = 0.3
-            # Drive straight again
-            elif delta < 11.5:
-                msg.linear.x = 0.3
-                msg.angular.z = 0.0
-            # Turn left
-            elif delta < 17:
-                msg.linear.x = 0.0
-                msg.angular.z = 0.3
-            # Drive straight
-            elif delta < 20:
-                msg.linear.x = 0.3
-                msg.angular.z = 0.0
-            # Turn left
-            elif delta < 25.5:
-                msg.linear.x = 0.0
-                msg.angular.z = 0.3
-            # Drive straight
-            elif delta < 28.5:
-                msg.linear.x = 0.3
-                msg.angular.z = 0.0
-            # Turn left
-            elif delta < 34:
+            
+            # Turn left for the next 5.5 seconds
+            else:
                 msg.linear.x = 0.0
                 msg.angular.z = 0.3
 

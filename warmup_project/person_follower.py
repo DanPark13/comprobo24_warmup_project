@@ -1,14 +1,64 @@
 import rclpy
 from rclpy.node import Node
+from sensor_msgs.msg import LaserScan
+from geometry_msgs.msg import Twist
 from visualization_msgs.msg import Marker
+from std_msgs.msg import Header
 
 class PersonFollowerNode(Node):
+    """
+    This is a node that follows a person
+    """
     def __init__(self):
         super().__init__('person_follower_node')
-        self.marker_pub = self.create_publisher(Marker, 'visualization_marker', 10)
 
-        # Need to publish markers by seconds
+        # Create publisher for velocity commands
+        self.vel_pub = self.create_publisher(Twist,'cmd_vel', 10)
+
+        # Subscribe to laser scan data
+        self.scan_sub = self.create_subscription(LaserScan, 'scan', self.process_scan, 10)
+
+        # Publish to marker for RViz
+        self.marker_pub = self.create_publisher(Marker,'person_marker', 10)
+
+        # Maximum distance for detecting a person
+        self.person_distance_max = 1.5
+
+        # Timer to publish the person marker
         self.timer = self.create_timer(1.0, self.publish_marker)
+
+    def process_scan(self, msg):
+        """
+        Main function that processes the laser scan data and controls the robot's movement.
+        """
+        # Extract ranges from the laser scan data
+        ranges = msg.ranges
+        angle_min = msg.angle_min
+        angle_increment = msg.angle_increment
+
+        # Detect the person
+        person_angle = None
+        for i, distance in enumerate(ranges):
+            if distance < self.person_distance_max:
+                person_angle = angle_min + i * angle_increment
+                break
+
+        # Command the robot to follow the detected person
+        if person_angle is not None:
+            self.follow_person(person_angle)
+
+    def follow_person(self, angle_to_person):
+        # Create a velocity command
+        msg = Twist()
+        
+        # Move forward with a constant speed
+        msg.linear.x = 0.5  # Adjust this value for desired speed
+        
+        # Turn towards the person
+        msg.angular.z = -angle_to_person  # Negative to turn towards the person
+        
+        # Publish the command
+        self.vel_pub.publish(msg)
 
     def publish_marker(self):
         """

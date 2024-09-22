@@ -16,6 +16,7 @@ test/test_flake8.py
 test/test_pep257.py
 warmup_project/__init__.py
 warmup_project/drive_square.py
+warmup_project/finite_state_controller.py
 warmup_project/hello_world.py
 warmup_project/marker_sample.py
 warmup_project/obstacle_avoider.py

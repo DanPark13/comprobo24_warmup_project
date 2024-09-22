@@ -24,6 +24,7 @@ function _colcon_prefix_chain_powershell_source_script {
 # source chained prefixes
 _colcon_prefix_chain_powershell_source_script "/opt/ros/foxy\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/opt/ros/humble\local_setup.ps1"
+_colcon_prefix_chain_powershell_source_script "/home/deep13/ros2_ws/src/comprobo24_warmup_project/warmup_project/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/deep13/ros2_ws/install\local_setup.ps1"
 
 # source this prefix

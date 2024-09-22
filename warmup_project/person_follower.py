@@ -55,7 +55,7 @@ class PersonFollowerNode(Node):
         msg = Twist()
         
         # Move forward with a constant speed
-        msg.linear.x = 0.5  # Adjust this value for desired speed
+        msg.linear.x = 0.3
         
         # Turn towards the person
         msg.angular.z = -angle_to_person  # Negative to turn towards the person

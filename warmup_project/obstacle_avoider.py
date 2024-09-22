@@ -2,15 +2,14 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
-from visualization_msgs.msg import Marker
 from std_msgs.msg import Header
 
-class PersonFollowerNode(Node):
+class ObstacleAvoiderNode(Node):
     """
     This is a node that follows a person
     """
     def __init__(self):
-        super().__init__('person_follower_node')
+        super().__init__('obstacle_follower_node')
 
         # Publisher for velocity commands
         self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
@@ -18,14 +17,8 @@ class PersonFollowerNode(Node):
         # Subscribe to laser scan data
         self.scan_sub = self.create_subscription(LaserScan, '/scan', self.process_scan, 10)
 
-        # Publisher for person marker
-        self.marker_pub = self.create_publisher(Marker,'/person_marker', 10)
-
         # Maximum distance for detecting a person
         self.person_distance_max = 1.5
-
-        # Timer to publish the person marker
-        self.timer = self.create_timer(1.0, self.publish_marker)
 
     def process_scan(self, msg):
         """
@@ -63,45 +56,9 @@ class PersonFollowerNode(Node):
         # Publish the command
         self.vel_pub.publish(msg)
 
-    def publish_marker(self):
-        """
-        Create marker representing person in rviz2
-        """
-        marker = Marker()
-        marker.header.frame_id = "base_link"
-        marker.header.stamp = self.get_clock().now().to_msg()
-        marker.ns = "basic_shapes"
-        marker.id = 0 
-        marker.type = Marker.SPHERE
-        
-        # Set marker pose (position and orientation)
-        marker.pose.position.x = 1.0
-        marker.pose.position.y = 0.0
-        marker.pose.position.z = 0.0
-        marker.pose.orientation.x = 0.0
-        marker.pose.orientation.y = 0.0
-        marker.pose.orientation.z = 0.0
-        marker.pose.orientation.w = 1.0
-
-        # Set the size of the marker (in meters)
-        marker.scale.x = 0.5
-        marker.scale.y = 0.5
-        marker.scale.z = 0.5
-
-        # Set the color (RGBA values between 0 and 1)
-        marker.color.r = 1.0
-        marker.color.g = 0.0
-        marker.color.b = 0.0
-        marker.color.a = 1.0  # Fully opaque
-
-        # Lifetime of the marker (0 means it stays forever)
-        marker.lifetime.sec = 0
-
-        self.marker_pub.publish(marker)
-
 def main(args=None):
     rclpy.init(args=args)
-    person_follower_node = PersonFollowerNode()
+    person_follower_node = ObstacleAvoiderNode()
     rclpy.spin(person_follower_node)
     person_follower_node.destroy_node()
     rclpy.shutdown()

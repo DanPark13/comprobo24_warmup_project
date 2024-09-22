@@ -28,6 +28,9 @@ class PersonFollowerNode(Node):
         self.timer = self.create_timer(1.0, self.publish_marker)
 
     def process_scan(self, msg):
+        """
+        Receives scan data and if object in range than calculate distance and angle and follows person
+        """
         # Extract ranges from the laser scan data
         ranges = msg.ranges
         angle_min = msg.angle_min
@@ -45,11 +48,14 @@ class PersonFollowerNode(Node):
             self.follow_person(person_angle)
 
     def follow_person(self, angle_to_person):
+        """
+        Drives robot with given instructions from process_scan
+        """
         # Create a velocity command
         msg = Twist()
         
         # Move forward with a constant speed
-        msg.linear.x = 0.5  # Adjust this value for desired speed
+        msg.linear.x = 0.3
         
         # Turn towards the person
         msg.angular.z = -angle_to_person  # Negative to turn towards the person

@@ -12,14 +12,14 @@ class PersonFollowerNode(Node):
     def __init__(self):
         super().__init__('person_follower_node')
 
-        # Create publisher for velocity commands
-        self.vel_pub = self.create_publisher(Twist,'cmd_vel', 10)
-
+        # Publisher for velocity commands
+        self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
+        
         # Subscribe to laser scan data
-        self.scan_sub = self.create_subscription(LaserScan, 'scan', self.process_scan, 10)
+        self.scan_sub = self.create_subscription(LaserScan, '/scan', self.process_scan, 10)
 
-        # Publish to marker for RViz
-        self.marker_pub = self.create_publisher(Marker,'person_marker', 10)
+        # Publisher for person marker
+        self.marker_pub = self.create_publisher(Marker,'/person_marker', 10)
 
         # Maximum distance for detecting a person
         self.person_distance_max = 1.5
@@ -28,9 +28,6 @@ class PersonFollowerNode(Node):
         self.timer = self.create_timer(1.0, self.publish_marker)
 
     def process_scan(self, msg):
-        """
-        Main function that processes the laser scan data and controls the robot's movement.
-        """
         # Extract ranges from the laser scan data
         ranges = msg.ranges
         angle_min = msg.angle_min
@@ -62,9 +59,8 @@ class PersonFollowerNode(Node):
 
     def publish_marker(self):
         """
-        Create marker in rviz2
+        Create marker representing person in rviz2
         """
-        # Create a marker object
         marker = Marker()
         marker.header.frame_id = "base_link"
         marker.header.stamp = self.get_clock().now().to_msg()
@@ -95,14 +91,13 @@ class PersonFollowerNode(Node):
         # Lifetime of the marker (0 means it stays forever)
         marker.lifetime.sec = 0
 
-        # Publish the marker
         self.marker_pub.publish(marker)
-        self.get_logger().info('Published a marker at x=1.0, y=0.0')
 
 def main(args=None):
     rclpy.init(args=args)
-    node = PersonFollowerNode()
-    rclpy.spin(node)
+    person_follower_node = PersonFollowerNode()
+    rclpy.spin(person_follower_node)
+    person_follower_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

@@ -1,0 +1,32 @@
+[0.721s] Invoking command in '/home/deep13/ros2_ws/src/comprobo24_warmup_project': PYTHONPATH=/home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/warmup_project build --build-base /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/build install --record /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/install.log --single-version-externally-managed install_data
+[0.991s] running egg_info
+[0.991s] writing build/warmup_project/warmup_project.egg-info/PKG-INFO
+[0.991s] writing dependency_links to build/warmup_project/warmup_project.egg-info/dependency_links.txt
+[0.992s] writing entry points to build/warmup_project/warmup_project.egg-info/entry_points.txt
+[0.992s] writing requirements to build/warmup_project/warmup_project.egg-info/requires.txt
+[0.992s] writing top-level names to build/warmup_project/warmup_project.egg-info/top_level.txt
+[0.995s] reading manifest file 'build/warmup_project/warmup_project.egg-info/SOURCES.txt'
+[0.996s] adding license file 'LICENSE'
+[0.996s] writing manifest file 'build/warmup_project/warmup_project.egg-info/SOURCES.txt'
+[0.997s] running build
+[0.997s] running build_py
+[0.997s] copying warmup_project/person_follower.py -> /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/build/lib/warmup_project
+[0.997s] running install
+[0.998s] running install_lib
+[0.999s] copying /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/build/lib/warmup_project/person_follower.py -> /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project
+[0.999s] byte-compiling /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project/person_follower.py to person_follower.cpython-310.pyc
+[1.000s] running install_data
+[1.000s] running install_egg_info
+[1.002s] removing '/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project-0.0.0-py3.10.egg-info' (and everything under it)
+[1.002s] Copying build/warmup_project/warmup_project.egg-info to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages/warmup_project-0.0.0-py3.10.egg-info
+[1.003s] running install_scripts
+[1.022s] Installing drive_square script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.022s] Installing finite_state_controller script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] Installing hello_world script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] Installing marker_sample script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] Installing obstacle_avoider script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] Installing person_follower script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] Installing teleop script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] Installing wall_follower script to /home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/warmup_project
+[1.023s] writing list of installed files to '/home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/install.log'
+[1.047s] Invoked command in '/home/deep13/ros2_ws/src/comprobo24_warmup_project' returned '0': PYTHONPATH=/home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/deep13/ros2_ws/src/comprobo24_warmup_project/install/warmup_project/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/warmup_project build --build-base /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/build install --record /home/deep13/ros2_ws/src/comprobo24_warmup_project/build/warmup_project/install.log --single-version-externally-managed install_data

@@ -10,10 +10,10 @@ class WallFollowerNode(Node):
         super().__init__("wall_follower_node")
 
         # Create publisher for velocity commands
-        self.vel_pub = self.create_publisher(Twist, "cmd_vel", 10)
+        self.vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
         
         # Subscribe to laser scan data
-        self.scan_sub = self.create_subscription(LaserScan, 'scan', self.process_scan, 10)
+        self.scan_sub = self.create_subscription(LaserScan, '/scan', self.process_scan, 10)
 
     def process_scan(self, msg):
         """

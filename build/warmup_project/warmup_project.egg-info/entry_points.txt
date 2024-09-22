@@ -2,5 +2,8 @@
 drive_square = warmup_project.drive_square:main
 hello_world = warmup_project.hello_world:main
 marker_sample = warmup_project.marker_sample:main
+obstacle_avoider = warmup_project.obstacle_avoider:main
+person_follower = warmup_project.person_follower:main
 teleop = warmup_project.teleop:main
+wall_follower = warmup_project.wall_follower:main
 

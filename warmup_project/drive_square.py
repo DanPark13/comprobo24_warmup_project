@@ -23,42 +23,42 @@ class DriveSquareNode(Node):
         print(delta)
 
         # Forwards
-        if delta < 5:
+        if delta < 3:
             msg.linear.x = 0.3
             msg.angular.z = 0.0
         
         # Turns Left
-        elif delta < 10.5:
+        elif delta < 8.5:
             msg.linear.x = 0.0
             msg.angular.z  = 0.3
         
         # Forwards again
-        elif delta < 15.5: 
+        elif delta < 11.5: 
             msg.linear.x = 0.3
             msg.angular.z = 0.0
 
         # Turns Left
-        elif delta < 21:
+        elif delta < 17:
             msg.linear.x = 0.0
             msg.angular.z = 0.3
         
         # Forwards
-        elif delta < 26:
+        elif delta < 20:
             msg.linear.x = 0.3
             msg.angular.z = 0.0
         
         # Turns Left
-        elif delta < 31.5:
+        elif delta < 25.5:
             msg.linear.x = 0.0
             msg.angular.z = 0.3
         
         # Forwards
-        elif delta < 36.5:
+        elif delta < 28.5:
             msg.linear.x = 0.3
             msg.angular.z = 0.0
         
         # Turns Left
-        elif delta < 42:
+        elif delta < 34:
             msg.linear.x = 0.0
             msg.angular.z = 0.3
 

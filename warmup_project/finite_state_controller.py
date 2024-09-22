@@ -19,6 +19,10 @@ class FiniteStateController(Node):
         # Distance threshold for detecting an obstacle (in meters)
         self.obstacle_distance_threshold = 1.0
 
+        # Set up timers for turning
+        self.start_timestamp = self.get_clock().now().nanoseconds
+        self.timer = self.create_timer(0.1, self.run_loop)
+
     def process_scan(self, msg):
         """
         Receives scan data, detects obstacles within the threshold distance,
@@ -56,13 +60,55 @@ class FiniteStateController(Node):
             msg.angular.z = -angle_to_obstacle  # Turn away from the obstacle
             self.get_logger().info(f"Obstacle detected! Turning away from angle: {angle_to_obstacle}")
         else:
-            # No obstacle nearby, move forward
-            msg.linear.x = 0.5  # Move forward
-            msg.angular.z = 0.0  # Go straight
-            self.get_logger().info("No obstacles. Moving forward...")
+            # No obstacle nearby, drive in a square
+            current_time = self.get_clock().now().nanoseconds
+            delta = (current_time - self.start_timestamp) * (10 ** -9)
+            print(delta)
 
-        # Publish the command
-        self.vel_pub.publish(msg)
+            # Forwards
+            if delta < 3:
+                msg.linear.x = 0.3
+                msg.angular.z = 0.0
+            
+            # Turns Left
+            elif delta < 8.5:
+                msg.linear.x = 0.0
+                msg.angular.z  = 0.3
+            
+            # Forwards again
+            elif delta < 11.5: 
+                msg.linear.x = 0.3
+                msg.angular.z = 0.0
+
+            # Turns Left
+            elif delta < 17:
+                msg.linear.x = 0.0
+                msg.angular.z = 0.3
+            
+            # Forwards
+            elif delta < 20:
+                msg.linear.x = 0.3
+                msg.angular.z = 0.0
+            
+            # Turns Left
+            elif delta < 25.5:
+                msg.linear.x = 0.0
+                msg.angular.z = 0.3
+            
+            # Forwards
+            elif delta < 28.5:
+                msg.linear.x = 0.3
+                msg.angular.z = 0.0
+            
+            # Turns Left
+            elif delta < 34:
+                msg.linear.x = 0.0
+                msg.angular.z = 0.3
+
+            self.vel_pub.publish(msg)
+
+            # Publish the command
+            self.vel_pub.publish(msg)
 
 def main(args=None):
     rclpy.init(args=args)

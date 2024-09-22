@@ -65,8 +65,6 @@ class FiniteStateController(Node):
             msg.linear.x = 0.0  # Stop moving forward
             msg.angular.z = -angle_to_obstacle  # Turn away from the obstacle
             self.get_logger().info(f"Obstacle detected! Turning away from angle: {angle_to_obstacle}")
-        else:
-            self.get_logger().info(f"No obstacle detected yet")
 
         # Publish the command
         self.vel_pub.publish(msg)
@@ -95,6 +93,9 @@ class FiniteStateController(Node):
             else:
                 msg.linear.x = 0.0
                 msg.angular.z = 0.3
+
+            # Log that no object was found, so continuing with square driving
+            self.get_logger().info("No object found. Driving in a square.")
 
         # Publish the command for square driving
         self.vel_pub.publish(msg)

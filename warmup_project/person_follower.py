@@ -22,7 +22,7 @@ class PersonFollowerNode(Node):
         self.marker_pub = self.create_publisher(Marker,'/person_marker', 10)
 
         # Maximum distance for detecting a person
-        self.person_distance_max = 1.5
+        self.person_distance_max = 1.0
 
         # Timer to publish the person marker
         self.timer = self.create_timer(1.0, self.publish_marker)

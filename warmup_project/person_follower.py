@@ -30,6 +30,8 @@ class PersonFollowerNode(Node):
     def process_scan(self, msg):
         """
         Receives scan data and if object in range than calculate distance and angle and follows person
+
+        Formula for computing angle: https://answers.ros.org/question/291385/explanation-on-sensor_msgslaserscan-and-time/
         """
         # Extract ranges from the laser scan data
         ranges = msg.ranges
